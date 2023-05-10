@@ -14,6 +14,10 @@ public class playerController : MonoBehaviour
 
     Vector2 movementInput;
 
+    Animator animator;
+
+    SpriteRenderer spriteRenderer;
+
     Rigidbody2D rb;
 
     List<RaycastHit2D> castCollisions = new List <RaycastHit2D>();
@@ -22,6 +26,8 @@ public class playerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         
     }
 
@@ -31,23 +37,44 @@ public class playerController : MonoBehaviour
         if (movementInput != Vector2.zero)
         {
             bool sucess = TryMove(movementInput);
-            if (sucess) {
+            if (sucess && movementInput.x > 0)
+            {
                 sucess = TryMove(new Vector2(movementInput.x, 0));
-
-
-            if (!sucess) {
-                    sucess = TryMove(new Vector2(0, movementInput.y));
-                        }
+                
             }
+            if (!sucess && movementInput.y > 0)
+            {
+                sucess = TryMove(new Vector2(0, movementInput.y));
+            }
+            animator.SetBool("isMoving", sucess);
+        }
+        else {
+            animator.SetBool("isMoving", false);
+        }
+        if (movementInput.x < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else if (movementInput.x > 0)
+        {
+            spriteRenderer.flipX = false;
         }
     }
 
-    private bool TryMove(Vector2 direction) {
-        int count = rb.Cast(direction, movementFilter, castCollisions, moveSpeed * Time.fixedDeltaTime + collisionOffset);
-        if (count == 0)
+    private bool TryMove(Vector2 direction)
+    {
+        if (direction != Vector2.zero)
         {
-            rb.position = (rb.position + direction * moveSpeed * Time.fixedDeltaTime);
-            return true;
+            int count = rb.Cast(direction, movementFilter, castCollisions, moveSpeed * Time.fixedDeltaTime + collisionOffset);
+            if (count == 0)
+            {
+                rb.position = (rb.position + direction * moveSpeed * Time.fixedDeltaTime);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         else {
             return false;
