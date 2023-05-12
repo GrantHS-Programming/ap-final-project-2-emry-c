@@ -1,5 +1,5 @@
 {
-    "name": "My project (1)",
+    "name": "PlayerInputActions",
     "maps": [
         {
             "name": "Player",
@@ -27,6 +27,24 @@
                     "name": "Fire",
                     "type": "Button",
                     "id": "fa80c2c9-ad2d-42cd-ac44-6e81546aeb05",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PickUp",
+                    "type": "Button",
+                    "id": "5aaa9dc1-1843-4704-b224-d104ce7fe076",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Place",
+                    "type": "Button",
+                    "id": "2de81304-55ac-4d3d-af37-854fa8b65ffe",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -251,6 +269,28 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b8aca721-abcc-42eb-85ac-6c2107e5bcf1",
+                    "path": "<Keyboard>/#(R)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "PickUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "234c8b94-f32d-4614-9b97-d182bf0f17cc",
+                    "path": "<Keyboard>/#(T)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Place",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

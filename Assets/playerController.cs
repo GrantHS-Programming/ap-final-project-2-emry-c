@@ -22,6 +22,9 @@ public class playerController : MonoBehaviour
 
     List<RaycastHit2D> castCollisions = new List <RaycastHit2D>();
 
+    bool canMove = true;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,30 +37,34 @@ public class playerController : MonoBehaviour
     // if movement is not 0, try to move
     private void FixedUpdate()
     {
-        if (movementInput != Vector2.zero)
+        if (canMove)
         {
-            bool sucess = TryMove(movementInput);
-            if (sucess && movementInput.x > 0)
+            if (movementInput != Vector2.zero)
             {
-                sucess = TryMove(new Vector2(movementInput.x, 0));
-                
+                bool sucess = TryMove(movementInput);
+                if (sucess && movementInput.x != 0)
+                {
+                    sucess = TryMove(new Vector2(movementInput.x, 0));
+
+                }
+                if (!sucess && movementInput.y != 0)
+                {
+                    sucess = TryMove(new Vector2(0, movementInput.y));
+                }
+                animator.SetBool("isMoving", sucess);
             }
-            if (!sucess && movementInput.y > 0)
+            else
             {
-                sucess = TryMove(new Vector2(0, movementInput.y));
+                animator.SetBool("isMoving", false);
             }
-            animator.SetBool("isMoving", sucess);
-        }
-        else {
-            animator.SetBool("isMoving", false);
-        }
-        if (movementInput.x < 0)
-        {
-            spriteRenderer.flipX = true;
-        }
-        else if (movementInput.x > 0)
-        {
-            spriteRenderer.flipX = false;
+            if (movementInput.x < 0)
+            {
+                spriteRenderer.flipX = true;
+            }
+            else if (movementInput.x > 0)
+            {
+                spriteRenderer.flipX = false;
+            }
         }
     }
 
@@ -83,5 +90,25 @@ public class playerController : MonoBehaviour
 
     void OnMove(InputValue movementValue) {
         movementInput = movementValue.Get<Vector2>();
+    }
+
+    void OnPickUp()
+    {
+        print("pickup pressed");
+        animator.SetTrigger("blockUp");
+
+    }
+
+    void OnPlace() {
+        print("place pressed");
+        animator.SetTrigger("blockDown");
+    }
+
+    public void LockedMovement() {
+        canMove = false;
+    }
+
+    public void UnlockMovement() {
+        canMove = true;
     }
 }
