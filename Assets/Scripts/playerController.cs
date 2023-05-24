@@ -10,7 +10,10 @@ public class playerController : MonoBehaviour
     public float collisionOffset = 0.5f;
 
     public ContactFilter2D movementFilter;
-    
+
+    private Inventory inventory;
+
+    [SerializeField] private UI_Inventory uiInventory;
 
     Vector2 movementInput;
 
@@ -28,6 +31,8 @@ public class playerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        inventory = new Inventory();
+        uiInventory.SetInventory(inventory);
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
