@@ -11,9 +11,6 @@ public class playerController : MonoBehaviour
 
     public ContactFilter2D movementFilter;
 
-    private Inventory inventory;
-
-    [SerializeField] private UI_Inventory uiInventory;
 
     Vector2 movementInput;
 
@@ -35,10 +32,6 @@ public class playerController : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        inventory = new Inventory();
-        uiInventory.SetInventory(inventory);
-
-        ItemWorld.SpawnItemWorld(new Vector3(20, 20), new Item { itemType = Item.ItemType.Chest, amount = 1 });
 
 
         
