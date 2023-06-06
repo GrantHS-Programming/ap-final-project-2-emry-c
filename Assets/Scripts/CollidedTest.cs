@@ -38,7 +38,7 @@ private void OnTriggerEnter2D(Collider2D person)
         }
         print("can interact");
         print(person.transform.position);
-        tilePosition = Vector3Int.CeilToInt(person.transform.position);
+        tilePosition = Vector3Int.RoundToInt(person.transform.position);
         print(tilePosition);
     }
 
