@@ -1,4 +1,4 @@
-using System.Collections;
+/**using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,4 +11,4 @@ public class InputEntry : MonoBehaviour
     public InputEntry(int points) {
         this.points = points;
     }
-}
+}*/

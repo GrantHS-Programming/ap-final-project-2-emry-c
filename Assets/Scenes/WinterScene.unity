@@ -23038,7 +23038,6 @@ GameObject:
   - component: {fileID: 729066499}
   - component: {fileID: 729066498}
   - component: {fileID: 729066497}
-  - component: {fileID: 729066500}
   m_Layer: 0
   m_Name: Tilemap
   m_TagString: Untagged
@@ -23218,20 +23217,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &729066500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729066495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5577299128bccc3418fa36ff1d38c64c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Num: 0
-  canInteract: 0
 --- !u!1 &1136281185
 GameObject:
   m_ObjectHideFlags: 0
@@ -23716,6 +23701,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1160807422 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 799303459325682413, guid: d89c51eda37f7194793441a716b71c8a, type: 3}
+  m_PrefabInstance: {fileID: 1331076514}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1331076514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23786,6 +23776,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9133767310507009496, guid: d89c51eda37f7194793441a716b71c8a, type: 3}
   m_PrefabInstance: {fileID: 1331076514}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1331076522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160807422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5577299128bccc3418fa36ff1d38c64c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Num: 0
+  area:
+    m_Position: {x: 0, y: 0, z: 0}
+    m_Size: {x: 0, y: 0, z: 0}
+  canInteract: 0
 --- !u!1 &1551985143
 GameObject:
   m_ObjectHideFlags: 3
