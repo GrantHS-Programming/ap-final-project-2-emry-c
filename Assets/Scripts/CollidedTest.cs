@@ -55,6 +55,7 @@ private void OnTriggerEnter2D(Collider2D tileCollidedWith)
         print("can interact");
         print("person: " + transform.position);
         print("tile  : " + tileCollidedWith.gameObject.transform.position);
+        // tileMap.GetTile(map.WorldToCell(tileCollidedWith.gameObject.transform.position));
         if (map == null){
             map = tileCollidedWith.GetComponentInParent<Tilemap>();
 
@@ -65,7 +66,8 @@ private void OnTriggerEnter2D(Collider2D tileCollidedWith)
                     if (tile && tile.GetType() == typeof(Tile))
                     {
                         print("tile" + index + ": " + tile);
-                    //if(tile.Contains(transform.position)    
+                    //if(tile.Contains(transform.position)
+                    // transform position gets the position of the whole tile map
                     }
                 }
 
