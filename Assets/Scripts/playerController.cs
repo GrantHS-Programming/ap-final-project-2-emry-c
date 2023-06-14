@@ -38,7 +38,7 @@ public class playerController : MonoBehaviour
     }
 
     // if movement is not 0, try to move
-    private void FixedUpdate()
+    private void Update()
     {
         if (canMove)
         {
@@ -75,10 +75,10 @@ public class playerController : MonoBehaviour
     {
         if (direction != Vector2.zero)
         {
-            int count = rb.Cast(direction, movementFilter, castCollisions, moveSpeed * Time.fixedDeltaTime + collisionOffset);
+            int count = rb.Cast(direction, movementFilter, castCollisions, moveSpeed * Time.deltaTime + collisionOffset);
             if (count == 0)
             {
-                rb.position = (rb.position + direction * moveSpeed * Time.fixedDeltaTime);
+                rb.position = (rb.position + direction * moveSpeed * Time.deltaTime);
                 return true;
             }
             else
